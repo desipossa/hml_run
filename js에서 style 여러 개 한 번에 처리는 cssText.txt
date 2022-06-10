@@ -1,0 +1,25 @@
+js에서 style 여러 개 한 번에 처리는 cssText
+tjdgus0528·2021년 10월 7일
+CSScssTextjsstyle
+0
+지금까지 js에서 style을 처리할 때
+style을 하나씩 처리하는 방법인 아래 방법을 사용했다.
+
+document.querySelector('.class').style.color='pink'
+이 사용법은 1개의 스타일만 적용할 때는 좋을 수 있으나
+여러 스타일을 적용하거나 style property 이름에 '-' 가 들어가면 카멜 케이스로 바꾸지 않아 실수할 수 있게 된다.
+
+그런데 오늘 찾아낸 아래의 style 적용법은
+문자열을 사용해 전체 스타일을 설정할 때 사용하기 편하다.
+카멜 케이스로 property를 변경하지 않아도 되고 모든 style을 한 번에 적을 수 있다.
+css에서 작성해서 복사 붙이긴 하면 된다.
+
+document.querySelector('.class').style.cssText=`color: pink; font-size: 20px;`
+하지만! 스타일을 추가하는 것이 아닌 전체를 교체하기 때문에 원래 있던 요소에 적용하는 것은 위험하다.
+
+요소를 새로 만들고, 여기에 스타일을 적용할 때는 기존 스타일이 없기 때문에 괜찮다.
+
+javascript.info에서 확인해 볼 수 있다.
+
+profile
+Maria Kim

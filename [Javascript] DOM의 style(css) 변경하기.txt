@@ -1,0 +1,171 @@
+[Javascript] DOM의 style(css) 변경하기, 읽기 (style, getComputedStyle())
+                            hi.anna
+                                2021. 11. 22. 08:51
+								
+							
+                        
+
+                        
+													
+														
+
+
+
+.adslot_2 { display:inline-block; width: 320px; height: 100px; text-align: center;}
+@media (max-width: 300px) { .adslot_2 { width: 320px; height: 100px; text-align: center;} }
+@media (min-width:700px) { .adslot_2 { width: 336px; height: 280px; text-align: center; } }
+@media (min-width:900px) { .adslot_2 { width: 336px; height: 280px; text-align: center;} }
+
+	
+
+
+
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+
+
+
+																											
+													
+
+                             
+Javascript를 이용하여
+DOM 객체를 다루는 방법을 알아보고 있습니다.
+[Javascript] 선택자, DOM 특정 요소(element) 찾기
+[Javascript] class 추가/변경/삭제/읽기 (className, classList)
+[Javascript] innerHTML, innerText, textContent 차이점
+ 
+ 
+이번에는 DOM의 CSS Style을 변경하고, 읽어오는 방법을 정리해 보도록 하겠습니다.
+ 
+1. style 속성값 변경(1) style 속성 사용하기 - css 속성 하나씩 추가하기(2) style.cssText 사용하기 - css 속성 한번에 여러개 추가하기(3) style, style.cssText 사용시 주의할 점2. style 속성값 읽어오기(1) style 속성(2) getComputedStyle() 사용하기(3) style과 getComputedStyle() 차이
+ 
+ 
+1. style 속성값 변경
+(1) style 속성 사용하기 - css 속성 하나씩 추가하기
+
+
+
+
+ 
+위 예제는 style 속성을 이용하여 글자 색상과 배경 색을 변경하는 예제입니다.
+ 
+const element = document.getElementById('greeting');
+Style을 적용할 element를 선택합니다.
+ 
+element.style.color = 'blue';
+element.style.backgroundColor = 'yellow';
+style 속성을 이용하여 글자 색상과 배경색을 지정해 주었습니다.
+style 속성에 지정할 수 있는 스타일은 이 링크를 참조하세요.
+이 때, 주의할 것은 style 속성에 지정하는 css 속성 이름은 carmel case를 사용한다는 것입니다.
+즉, 'background-color'는 'backgroundColor'로 작성합니다. '-'가 들어가서는 안됩니다.
+ 
+ 
+(2) style.cssText 사용하기 - css 속성 한번에 여러개 추가하기
+한꺼번에 글자의 색상과 배경색을 적용해 주고 싶을 때는 어떻게 해야 할까요?
+
+
+
+
+ 
+위 예제에서는 한꺼번에 글자의 색상과 배경색을 지정해 주기 위해서
+style의 cssText 속성을 사용하였습니다.
+ 
+const element = document.getElementById('greeting');
+Style을 적용할 element를 선택합니다.
+ 
+element.style.cssText = 'color: blue; background-color: yellow';
+style.cssText 속성 값으로 글자 색상과 배경색을 지정하는 css 구문을 넣어주었습니다.
+cssText 속성을 지정할 때는, '-'를 사용한 css 속성명을 사용합니다.
+ 
+ 
+(3) style, style.cssText 사용시 주의할 점
+앞에서 소개한 style 속성과 style.cssText 속성을 사용하여 style을 지정할 때 주의해야 할 것이 있습니다.
+
+style.css속성명 -  기존에 정의된 style에 새로운 속성을 추가합니다.
+style.cssText - 기존에 정의된 style을 지우고, cssText로 덮어 씁니다.
+
+ 
+  예제 1 - style.css속성을 정의한 후, cssText를 지정한 경우  
+
+
+
+
+ 
+위 예제에서는
+style.fontWeight='bold'를 지정하였지만
+element.style.cssText 구문이
+앞에서 지정한 'fontWeight' 속성을 모두 덮어쓴 것을 확인 할 수 있습니다.
+ 
+ 
+  예제 2 - cssText를 지정한 후, style.css속성을 정의한 경우  
+
+
+
+
+ 
+이번 예제에서는 cssText 속성을 먼저 지정하고,
+element.style.fontWeight 속성을 나중에 정의하였습니다.
+cssText 속성에 정의된 style에, fontWeight가 추가된 것을 확인 할 수 있습니다.
+ 
+ 
+ 
+2. style 속성값 읽어오기
+(1) style 속성
+style 속성을 사용하여 inline으로 정의된 style 속성값을 읽어올 수 있습니다.
+
+
+
+
+ 
+위 예제는 style 속성을 이용하여, inline으로 정의된 style 속성을 읽어오고 있습니다.
+ 
+ 
+ 
+(2) getComputedStyle() 사용하기
+getComputedStyle() 을 사용하여 style을 읽어올 수도 있습니다.
+ 
+Window.getComputedStyle() 메소드는  파라미터로 전달받은 요소의 모든 CSS 속성값을 담은 객체를 리턴합니다.
+
+
+
+
+ 
+getComputedStyle(element).color;
+getComputedStyle(element).backgroundColor;
+위 예제는 getComputedStyle() 메소드를 이용하여
+element에 정의된 style 속성값을 읽어오고 있습니다.
+또한, getComputedStyle()은 computed된 값을 가져오기 때문에
+실제로 파일에 지정한 color값인 'blue', 'red'값이 아니라
+rgb 값을 가져오는 것을 확인 할 수 있습니다.
+ 
+ 
+(3) style과 getComputedStyle() 차이
+style 속성과 getComputedStyle()을 사용하는 것에는 차이가 있습니다.
+
+style 속성 : inline으로 정의된 style 속성만 읽어옵니다.
+getComputedStyle() : inline 뿐만 아니라, <style> 및 class속성, css 파일로 정의된 style 속성을 모두 읽어옵니다.
+
+
+
+
+
+ 
+이 예제는 style 속성으로 문자의 색상과 배경색을 읽어오는 것과,
+getComputedStyle() 메소드를 이용하는 것의 차이를 보여줍니다.
+ 
+이 예제에서 'greeting' element는 
+inline으로 문자의 색상이 'blue'로 지정되어 있고,
+css 탭에 배경색으로 'yellow'가 지정되어 있습니다.
+ 
+style 속성으로 background-color 속성을 읽어올 경우, 값을 가져오지 못합니다.
+getComputedStyle()을 이용하여 background-color 속성을 읽어올 경우, 값을 가져옵니다.
+style 속성으로 값을 읽을 경우, inline으로 정의된 속성만 읽어올 수 있기 때문입니다.
+ 
+ 
+
+ 
+dom의  style 속성을 변경하고, 값을 읽어오는 방법을 알아보았습니다.
+ 
+ 
+출처: https://hianna.tistory.com/671 [어제 오늘 내일:티스토리]
