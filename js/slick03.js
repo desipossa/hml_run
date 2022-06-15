@@ -4,7 +4,10 @@ $(function () {
 
     $('.main_slider').on('init afterChange', function (e, s, c) {
         $('.main_slider figure.slick-current').addClass('on').siblings().removeClass('on');
-        $('.num').css({ backgroundPositionY: -100 * createNum + "px" });
+        $('.num').css({
+            backgroundPositionY: -100 *
+                createNum + "px"
+        });
         $('.custom_dots li').eq(0).addClass('on');
         $('.custom_dots li').eq(c).addClass('on').siblings().removeClass('on');
         createNum++;

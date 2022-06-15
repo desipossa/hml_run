@@ -153,7 +153,9 @@
     transition: 2s;
 }
 
+/* vertical-align % 값주기 */
 .main_visual i {
+    color: #fff;
     font-size: 30px;
-    vertical-align: middle;
+    vertical-align: -25%;
 }
