@@ -13,17 +13,16 @@
         }
 
         .container {
+            display: flex;
+            gap: 100px;
             width: 1200px;
             margin: 0 auto;
         }
 
-        .tab_menu {
-            display: flex;
-        }
-
-        .tab_menu>li {
+        .container>ul {
             flex: 1;
         }
+
 
 
 
@@ -43,13 +42,57 @@
             border-left: 1px solid #fff;
         }
 
+        .tab_content {
+            position: relative;
+            background: url(../img/lesedilarona01.jpg);
+            height: 500px;
+        }
+
         .tab_content>li {
+            position: absolute;
             display: none;
-            padding: 10px;
+            font-size: 0;
+        }
+
+        .tab_content>li::before {
+            content: "\eb5f";
+            font-family: 'xeicon';
+            font-size: 30px;
+            color: #f00;
         }
 
         .tab_content>li.on {
             display: block;
+            animation: arrow 2s;
+        }
+
+        .tab_content>li:nth-child(1) {
+            inset: 100px auto auto 100px;
+        }
+
+
+
+        .tab_content>li:nth-child(2) {
+            inset: 400px auto auto 300px;
+        }
+
+        .tab_content>li:nth-child(3) {
+            inset: 200px auto auto 400px;
+        }
+
+        @keyframes arrow {
+            to {
+                transform: rotateY(720deg);
+            }
+        }
+
+
+
+
+
+        .bbong {
+            padding: 200px 0;
+            background: #333;
         }
     </style>
 </head>
@@ -59,32 +102,23 @@
         <div class="container">
             <ul class="tab_menu">
                 <li class="on">
-                    <a href="">menu01</a>
+                    <a href="">seoul</a>
                 </li>
                 <li>
-                    <a href="">menu02</a>
+                    <a href="">busan</a>
                 </li>
                 <li>
-                    <a href="">menu03</a>
+                    <a href="">dokdo</a>
                 </li>
             </ul>
             <ul class="tab_content">
-                <li class="on">01 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae architecto magni
-                    asperiores
-                    consequatur
-                    vitae
-                    sit earum nihil laudantium.</li>
-                <li>02 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae architecto magni asperiores
-                    consequatur
-                    vitae
-                    sit earum nihil laudantium.</li>
-                <li>03 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae architecto magni asperiores
-                    consequatur
-                    vitae
-                    sit earum nihil laudantium.</li>
+                <li>seoul</li>
+                <li>busan</li>
+                <li>dokdo</li>
             </ul>
         </div>
     </section>
+    <section class="bbong"></section>
 
     <script src="../js/jquery-1.12.4.min.js"></script>
     <script>
@@ -97,7 +131,7 @@
                 $('.tab_content>li').eq(idx).addClass('on');
                 $('.tab_menu>li').removeClass('on');
                 $(this).parent().addClass('on');
-            })
+            });
         })
     </script>
 </body>

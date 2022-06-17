@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tabContent>div {
+            display: none;
+        }
+
+        #tabContent>div.on {
+            display: block;
+        }
+
+        #tabMenu li.on {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="tabMenu">
+        <li><a href="#">menu01</a></li>
+        <li><a href="#">menu02</a></li>
+        <li><a href="#">menu03</a></li>
+        <li><a href="#">menu04</a></li>
+        <li><a href="#">menu05</a></li>
+    </ul>
+    <div id="tabContent">
+        <div class="on">01 text</div>
+        <div>02 text</div>
+        <div>03 text</div>
+        <div>04 text</div>
+        <div>05 text</div>
+    </div>
+</body>
+<script>
+    const tabMenu = document.querySelector('#tabMenu');
+    const tabLi = [...tabMenu.children];
+    const tabContent = document.querySelectorAll('#tabContent>div')
+    const TAB = e => {
+        const tg = e.target.parentElement;
+        const tabIndex = tabLi.indexOf(tg);
+        tabLi.forEach(el => el.classList.remove('on'));
+        tg.classList.add('on');
+        tabContent.forEach(el => el.classList.remove('on'));
+        tabContent[tabIndex].classList.add('on');
+    };
+
+    tabMenu.addEventListener('click', TAB)
+
+
+
+</script>
+
+</html>
