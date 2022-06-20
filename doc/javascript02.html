@@ -5,33 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>text animatin javascript</title>
+    <link rel="stylesheet" href="../css/common.css">
     <style>
-        #box.on {
-            color: #f00;
+        body {
+            overflow: hidden;
+            background: #333;
+            color: #fff;
+        }
+
+        .txt {
+            transform: perspective(200px) rotateX(20deg);
+        }
+
+
+        #txtAni {
+            position: relative;
+            width: 1000px;
+            height: 1000px;
+            animation: txtain 6s infinite linear;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        @keyframes txtain {
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div id="box" onclick=toggleCLASS()></div>
+    <section class="txt">
+        <div id="txtAni"></div>
+    </section>
+
     <script>
-        const BOX = document.querySelector('#box');
-        BOX.innerHTML = 'leeChangHun';
 
-        // box.addEventListener('click', (e) => {
-        //     console.log(e.target, e.currentTarget);
-        // });
+        const MTXT = document.querySelector('#txtAni')
+        animationTXT = (txt) => {
+            let TXT = [...txt];
+            console.log(TXT)
+            TXT.forEach((el, idx) => {
+                let SPAN = document.createElement('span');
+                SPAN.innerText = el;
+                MTXT.appendChild(SPAN);
+                SPAN.style.cssText = `
+                    position: absolute;
+                    inset: 0 auto auto 50%;
+                    transform: rotate(${(360 / TXT.length) * idx}deg);
+                    height: 50%;
+                    transform-origin : bottom center;
+                    width: 50px;
+                    font-size: 100px;
+                    `
 
-        let ONCLASS;
-
-        function toggleCLASS() {
-            ONCLASS = !ONCLASS;
-            console.log(ONCLASS || 'hoho');
-            console.log(ONCLASS && 'haha');
-            console.log(ONCLASS?.ONCLASS);
-            ONCLASS ? BOX.classList.add('on') : BOX.classList.remove('on');
+            })
         }
+        animationTXT('JEWELLERY COLLECTION EVENT')
 
 
     </script>
