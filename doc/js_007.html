@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>007. 함수</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        let Year = 1972;
+        function plusName(pram, age, ...args) {
+            console.log(Year)
+            Year = age;
+            console.log(Year)
+            document.getElementById('main').innerText = `
+            안녕 나는 ${pram} 
+            ${age}살 더이상의
+            설명은 생략한다.
+            ... ${args}`;
+            console.log(this); // this는 콜하는 대상에 의해서 결정된다.
+        }
+        plusName('잼민', 51, "뿌", '뽀', '삐');
+        console.log(age)
+
+        //클로져 안에서는 밖을 볼 수 있지만 밖에서는 안을 볼 수 없다.
+
+
+    </script>
+</body>
+
+</html>

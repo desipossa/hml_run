@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>004. 연산자</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        //사칙 연산 및 형변환
+        let a = 1;
+        let b = 2;
+        const c = "3";
+
+        const d = ['lee', 'ja', 'min', c];
+
+        console.log(a + b);
+        console.log(a - b);
+        console.log(a * b);
+        console.log(a / b);
+        console.log(a % b);
+        console.log(a++); //값을 담아만 놓음
+        console.log(++a); //값을 담아서 돌려줌
+
+        console.log(a + b + c);
+        console.log(c + b + a);
+        console.log(c / b);
+
+        console.log(a + b + Number(c));
+        console.log(String(a) + b);
+        console.log(a ? a : b); // 삼항연산자.
+        console.log(a && c); //비교연산자
+        console.log(a || c); //비교연산자
+
+        console.log(d);
+        console.log(...d);
+        console.log({ ...d });
+        const ds = [...d];
+        console.log(ds);
+        console.log(d === ds);
+
+        const dds = [...d, ...d];
+        console.log(dds);
+
+
+    </script>
+</body>
+
+</html>

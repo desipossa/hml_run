@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>005. 조건문 1</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <input type="text" id="age">
+    <button id="btn">입장</button>
+    <script>
+        document.getElementById('main').innerText = '당신은 잼민입니까?';
+
+        function jjaminAge(pramAge) {
+            if (isNaN(pramAge)) {
+                alert('바부팅 숫자를 쓰라공');
+                return;
+            }
+            if (pramAge >= 19) {
+                alert('돌아가세요... 잼민이를 위한 공간입니다.')
+            } else if (pramAge < 19 && pramAge >= 13) {
+                alert('메롱')
+            } else {
+                alert('안녕 잼민이 !!!')
+            }
+        }
+
+        document.getElementById('btn').addEventListener('click', function () {
+            let jjaAge = Number(document.getElementById('age').value);
+            console.log(jjaAge);
+            jjaminAge(jjaAge);
+        });
+
+
+    </script>
+</body>
+
+</html>

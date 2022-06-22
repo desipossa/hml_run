@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>008. 함수2</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <button id="btn">나와라 this</button>
+    <script>
+        // 함수 표현식과 화살표 함수 
+        let _this = this;
+        function plusName(pram, age, ...args) {
+            document.getElementById('main').innerText = this;
+            console.log(this); // 이벤트에서 this는 이벤트가 걸린 객체를 가르킨다.
+        }
+        //plusName('잼민', 51, "뿌", '뽀', '삐');
+
+        document.getElementById('btn').addEventListener('click', plusName)
+
+
+    </script>
+</body>
+
+</html>

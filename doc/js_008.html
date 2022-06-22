@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>008. 함수2</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        // 함수 표현식과 화살표 함수 
+        let _this = this;
+        const plusName = (pram, age, ...args) => {
+            document.getElementById('main').innerText = `
+            안녕 나는 ${pram} 
+            ${age}살 더이상의
+            설명은 생략한다.
+            ...  ${args}`;
+            console.log(this); // 화살표 함수에는 this가 없다.
+        }
+        plusName('잼민', 51, "뿌", '뽀', '삐');
+
+
+    </script>
+</body>
+
+</html>

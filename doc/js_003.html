@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>002. 변수2 / 상수 , 변수</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <button id="btn">CLICK</button>
+    <script>
+
+        // var --> ECMA6 : const(상수), let(변수)로 나뉨. 함수스코프에서 {}블록스코프로 바뀜;
+        const TXT = '안녕 나는 잼민이라고햐!'; //상수는 변하지 않는 값을 가짐. 선언과 동시에 할당.
+        // 변수는 선언과 할당을 따로해줄 수 있음.
+        { let num; num = 1; }
+        //console.log(num);
+        let num;
+        num = 999;
+        console.log(num);
+
+        function txtWrite() {
+            document.querySelector('#main').innerText = num + "번" + TXT;
+            console.log(document.querySelector('#main').innerText)
+        }
+        //아이디는 바로 불러 올 수 있느나 좋은 방법이 아님.
+        //btn.onclick = txtWrite;
+        document.querySelector('#btn').addEventListener('click', txtWrite);
+
+
+    </script>
+</body>
+
+</html>
