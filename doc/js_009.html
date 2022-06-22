@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>009. 객체</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <button id="btn">나와라 this</button>
+    <script>
+        // 객체
+
+        const 잼민이 = {
+            name: '잼민이',
+            age: 51,
+            all: this, //객체 안에서의 this
+            hobby() {
+                document.querySelector('#main').innerHTML = '술먹는 잼민이';
+            },
+            hobby2() {
+                document.querySelector('#main').innerHTML = this;
+            }
+        }
+
+        잼민이.hobby();
+
+        console.log(잼민이.name);
+        console.log(잼민이['name']);
+        console.log(잼민이.hobby);
+        console.log(잼민이.all);
+
+        document.querySelector('#btn').addEventListener('click', 잼민이.hobby2)
+
+
+
+    </script>
+</body>
+
+</html>
