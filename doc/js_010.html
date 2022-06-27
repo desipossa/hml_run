@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010. class</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <button id="btn">나와라 잼민이</button>
+    <script>
+        // class만들기 01
+
+        class jjamin {
+            constructor(name, age, food) {
+                this.name = name;
+                this.age = age;
+                this.food = food;
+            }
+            eat() {
+                return this.food
+            }
+        }
+
+        const jamini = new jjamin('잼민이', 51, '술');
+
+        //템플릿 리터럴 사용시 innerText는 줄 바꿈?
+
+        // [JavaScript]물음표 사용 방법, Null 병합 연산자, 옵셔널 체이닝  
+        // 출처: https://developer-talk.tistory.com/300 [평범한 직장인의 공부 정리:티스토리]
+
+        document.querySelector('#btn').addEventListener('click', () => {
+            document.querySelector('#main').innerText = `${jamini.name}는 
+            ${jamini.age}살 먹은 애기예유~~~ ...
+            ${jamini.eat()} 먹는 걸 잘해요.
+            `
+        })
+
+
+
+    </script>
+</body>
+
+</html>
