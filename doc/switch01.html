@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/slick.css">
+</head>
+
+<body>
+    <section class="main_visual">
+        <div class="main_slider">
+            <div class="itm">01</div>
+            <div class="itm">02</div>
+            <div class="itm">03</div>
+        </div>
+        <ul class="control">
+            <li><i class="xi-pause"></i></li>
+            <li><i class="xi-angle-left"></i></li>
+            <li><i class="xi-angle-right"></i></li>
+        </ul>
+    </section>
+
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <script>
+        $('.main_slider').slick({
+            autoplay: true,
+            autoplaySpeed: 1000,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+        });
+
+        var swc = true;
+
+        $('.control i:nth-child(1)').on('click', function () {
+            swc
+                ? ($(this).attr('class', 'xi-play'), $('.main_slider').slick('slickPause'))
+                : ($(this).attr('class', 'xi-pause'), $('.main_slider').slick('slickPlay'));
+            swc = !swc
+        })
+
+
+
+    </script>
+</body>
+
+</html>
